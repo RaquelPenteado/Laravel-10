@@ -14,7 +14,7 @@
             <tr>
                 <td>{{ $support->subject }}</td>
                 <td>{{ $support->status }}</td>
-                <td>{{ $support->description }}</td>
+                <td>{{ $support->body }}</td>
                 <td>-Ação-</td>
             </tr>
         @endforeach
