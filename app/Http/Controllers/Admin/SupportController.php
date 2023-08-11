@@ -13,6 +13,13 @@ class SupportController extends Controller
         return view('admin/supports/index', compact('supports'));
     }
 
+    public function show(string|int $id) {
+        if (!$support = Support::find($id)) {
+            return back();
+        }
+        return view('admin/supports/show', compact('support'));
+    }
+
     public function create() {
         return view('admin/supports/create');
     }
