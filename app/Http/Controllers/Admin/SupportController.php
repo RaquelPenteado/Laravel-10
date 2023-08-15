@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Support;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class SupportController extends Controller
 {
@@ -49,6 +50,15 @@ class SupportController extends Controller
             'body'
         ]));
         
+        return redirect()->route('supports.index');
+    }
+
+    public function destroy(Support $support, string|int $id) {
+        if (!$support = $support->find($id)) {
+            return back();
+        }
+        $support->delete();
+
         return redirect()->route('supports.index');
     }
 }
