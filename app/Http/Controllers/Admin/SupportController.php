@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUpdateSupport;
 use App\Models\Support;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -25,11 +26,11 @@ class SupportController extends Controller
         return view('admin/supports/create');
     }
 
-    public function store(Request $request, Support $support) {
+    public function store(StoreUpdateSupport $request, Support $support) {
         $data = $request->all();
         $data['status'] = 'a';
 
-        $support = $support->create($data);
+        $support->create($data);
 
         return redirect()->route('supports.index');
     }
