@@ -1,4 +1,4 @@
-<h1>Dúvida {{ $support->id }}</h1>
+<h1>Editar Dúvida {{ $support->id }}</h1>
 
 <x-alert/>
 
