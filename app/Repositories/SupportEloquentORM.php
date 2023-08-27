@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Repositories;
+
 use App\DTO\CreateSupportDTO;
 use App\DTO\UpdateSupportDTO;
 use App\Models\Support;
@@ -16,7 +18,7 @@ class SuportEloquentORM implements SupportRepositoryInterface {
                 $query->where('subject', $filter);
                 $query->orWhere('body', 'like', "%{$filter}%");
             }
-        })->all()->toArray();
+        })->get()->toArray();
     }
     
     public function findOne(string $id): stdClass|null {
