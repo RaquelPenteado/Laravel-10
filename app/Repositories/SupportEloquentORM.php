@@ -6,8 +6,9 @@ use App\DTO\CreateSupportDTO;
 use App\DTO\UpdateSupportDTO;
 use App\Models\Support;
 use App\Repositories\SupportRepositoryInterface;
+use stdClass;
 
-class SuportEloquentORM implements SupportRepositoryInterface {
+class SupportEloquentORM implements SupportRepositoryInterface {
 
     public function __construct(protected Support $model)
     {}
@@ -31,7 +32,7 @@ class SuportEloquentORM implements SupportRepositoryInterface {
     }
     
     public function delete(string $id): void {
-        return $this->model->findOrFail($id)->delete();
+        $this->model->findOrFail($id)->delete();
     }
     
     public function new(CreateSupportDTO $dto): stdClass {

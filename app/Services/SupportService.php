@@ -9,8 +9,6 @@ use stdClass;
 
 class SupportService {
 
-    protected $repository;
-
     public function __construct(
         protected SupportRepositoryInterface $repository
     ) {}
@@ -32,6 +30,6 @@ class SupportService {
     }
 
     public function delete(string $id): void {
-        return $this->repository->delete($id);
+        $this->repository->delete($id);
     }
 }
