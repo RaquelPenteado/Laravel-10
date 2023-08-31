@@ -20,8 +20,8 @@ class SupportEloquentORM implements SupportRepositoryInterface {
                 $query->orWhere('body', 'like', "%{$filter}%");
             }
         })->paginate($totalPerPage, ['*'], 'page', $page);
-
-        dd($result);
+        dd( (new PaginationPresenter($result))->items());
+        return new PaginationPresenter($result);
     }
 
     public function getAll(string $filter = null): array {
